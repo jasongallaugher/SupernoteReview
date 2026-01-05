@@ -1,5 +1,5 @@
 import pytest
-from manta.device import SupernoteDevice
+from sn.device import SupernoteDevice
 
 def test_device_init(mock_adb_client):
     dev = SupernoteDevice()

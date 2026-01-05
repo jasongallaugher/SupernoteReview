@@ -8,7 +8,7 @@ from . import state
 
 @click.group()
 def cli():
-    """Manta Review CLI - Supernote round-trip workflow."""
+    """Supernote Review CLI - Supernote round-trip workflow."""
     pass
 
 @cli.command()

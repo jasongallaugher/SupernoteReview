@@ -1,6 +1,6 @@
 import pytest
 from click.testing import CliRunner
-from manta.main import cli
+from sn.main import cli
 from unittest.mock import MagicMock
 
 @pytest.fixture
@@ -22,8 +22,8 @@ def test_review_flow(runner, temp_state_file, mocker):
     # Mock dependencies
     def mock_convert(src, dst):
         with open(dst, "w") as f: f.write("dummy pdf content")
-    mocker.patch("manta.main.convert_to_pdf", side_effect=mock_convert)
-    mock_dev_cls = mocker.patch("manta.main.SupernoteDevice")
+    mocker.patch("sn.main.convert_to_pdf", side_effect=mock_convert)
+    mock_dev_cls = mocker.patch("sn.main.SupernoteDevice")
     mock_dev = mock_dev_cls.return_value
     
     # Create dummy file
@@ -39,16 +39,16 @@ def test_review_flow(runner, temp_state_file, mocker):
         # Verify push called
         assert mock_dev.push.called
         # Verify state updated
-        from manta import state
+        from sn import state
         assert "draft.md" in str(list(state.get_pending_reviews().keys())[0])
 
 def test_done_flow_exact_match(runner, temp_state_file, mocker):
     # 1. Setup State
-    from manta import state
+    from sn import state
     state.add_review("draft.md", "/storage/emulated/0/Document/PDFs/ForReview/draft_123.pdf")
     
     # 2. Mock Device
-    mock_dev_cls = mocker.patch("manta.main.SupernoteDevice")
+    mock_dev_cls = mocker.patch("sn.main.SupernoteDevice")
     mock_dev = mock_dev_cls.return_value
     mock_dev.exists.return_value = True # Pretend export exists
     
@@ -71,11 +71,11 @@ def test_done_flow_exact_match(runner, temp_state_file, mocker):
 
 def test_done_flow_fuzzy_match(runner, temp_state_file, mocker):
     # 1. Setup State
-    from manta import state
+    from sn import state
     state.add_review("draft.md", "/storage/emulated/0/Document/PDFs/ForReview/draft_123.pdf")
     
     # 2. Mock Device
-    mock_dev_cls = mocker.patch("manta.main.SupernoteDevice")
+    mock_dev_cls = mocker.patch("sn.main.SupernoteDevice")
     mock_dev = mock_dev_cls.return_value
     mock_dev.exists.return_value = False # Exact export missing
     mock_dev.list_dir.return_value = ["draft_456.pdf", "other.pdf"]

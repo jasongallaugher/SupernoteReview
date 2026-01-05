@@ -1,4 +1,4 @@
-from manta import state
+from sn import state
 from datetime import datetime
 
 def test_add_review(temp_state_file):

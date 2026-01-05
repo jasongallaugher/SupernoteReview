@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 # Path to the compiled binary
-BINARY_PATH = Path(__file__).parent / "dist" / "manta-review"
+BINARY_PATH = Path(__file__).parent / "dist" / "sn-review"
 
 # 1. System Prompt / Playbook
 # Add this to your LLM's system message so it understands the workflow.
@@ -24,8 +24,8 @@ Use this workflow when you need feedback, validation, or creative direction on a
 """
 
 # 2. Tool Definitions (OpenAI Format)
-# Pass this list to your LLM.ask_tool(..., tools=MANTA_TOOLS)
-MANTA_TOOLS = [
+# Pass this list to your LLM.ask_tool(..., tools=SN_TOOLS)
+SN_TOOLS = [
     {
         "type": "function",
         "function": {
@@ -63,9 +63,9 @@ MANTA_TOOLS = [
 
 # 3. Execution Logic
 # Call this when the LLM returns a tool_call
-def execute_manta_tool(tool_name: str, args: dict) -> str:
+def execute_sn_tool(tool_name: str, args: dict) -> str:
     """
-    Executes the manta-review binary based on the tool selection.
+    Executes the sn-review binary based on the tool selection.
     """
     cmd = [str(BINARY_PATH)]
     
@@ -99,6 +99,6 @@ def execute_manta_tool(tool_name: str, args: dict) -> str:
 
 # Example Usage
 if __name__ == "__main__":
-    print("Manta Agent Integration Module")
+    print("Supernote Agent Integration Module")
     print(f"Binary Path: {BINARY_PATH}")
-    print("Import `MANTA_TOOLS` and `execute_manta_tool` into your LLM loop.")
+    print("Import `SN_TOOLS` and `execute_sn_tool` into your LLM loop.")

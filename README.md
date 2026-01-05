@@ -21,7 +21,7 @@ This tool provides a "Human-in-the-loop" bridge for AI agents to send documents 
 ### Fast Install (Binary)
 Move the compiled binary to your local path:
 ```bash
-mv dist/manta-review /usr/local/bin/
+mv dist/sn-review /usr/local/bin/
 ```
 
 ### Developer Setup (using uv)
@@ -36,7 +36,7 @@ uv sync
 ### Start a Review
 Convert a local Markdown file and pop it open on your Supernote:
 ```bash
-manta-review review FEATURE_SPEC.md
+sn-review review FEATURE_SPEC.md
 ```
 The file will be pushed to `/Document/PDFs/ForReview/` on the device.
 
@@ -44,13 +44,13 @@ The file will be pushed to `/Document/PDFs/ForReview/` on the device.
 1.  On your Supernote, use the toolbar to **Export** your annotations (this bakes the handwriting into the PDF).
 2.  Run the retrieval command:
 ```bash
-manta-review done FEATURE_SPEC
+sn-review done FEATURE_SPEC
 ```
 This downloads the annotated PDF and generates a `FEATURE_SPEC-review.md` report.
 
 ### List Pending Reviews
 ```bash
-manta-review list
+sn-review list
 ```
 
 ## 🤖 LLM / Agent Integration
@@ -62,7 +62,7 @@ This tool is designed to be invoked by AI agents. A detailed **[Integration Guid
 
 To view the integration guide directly from the CLI:
 ```bash
-manta-review usage
+sn-review usage
 ```
 
 ## 🧪 Testing

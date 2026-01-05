@@ -1,4 +1,4 @@
-from manta.main import cli
+from sn.main import cli
 
 if __name__ == '__main__':
     cli()

@@ -7,9 +7,9 @@ from unittest.mock import MagicMock
 @pytest.fixture
 def temp_state_file(tmp_path):
     """Creates a temporary state file for testing."""
-    state_file = tmp_path / ".manta_state.json"
+    state_file = tmp_path / ".sn_state.json"
     # Patch the STATE_FILE in the state module
-    import manta.state as state_module
+    import sn.state as state_module
     original_state_file = state_module.STATE_FILE
     state_module.STATE_FILE = state_file
     

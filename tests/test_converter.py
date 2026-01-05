@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from manta.converter import convert_to_pdf, get_pdf_name
+from sn.converter import convert_to_pdf, get_pdf_name
 
 def test_get_pdf_name():
     assert get_pdf_name("test.md") == "test.pdf"

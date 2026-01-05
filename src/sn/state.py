@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-STATE_FILE = Path(".manta_state.json")
+STATE_FILE = Path(".sn_state.json")
 
 def load_state():
     if not STATE_FILE.exists():

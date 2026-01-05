@@ -12,8 +12,8 @@ dependencies = [
 ]
 
 [project.scripts]
-manta-review = "manta.main:cli"
-manta-done = "manta.main:done"
+sn-review = "sn.main:cli"
+sn-done = "sn.main:done"
 build-binary = "build_entry:cli" # Placeholder, actual build is via shell
 
 [tool.uv]

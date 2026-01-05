@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='manta-review',
+    name='sn-review',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
