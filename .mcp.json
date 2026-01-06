@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "supernote": {
+      "command": "uv",
+      "args": ["run", "python", "-m", "sn.mcp_server"],
+      "cwd": "/Users/jasongallaugher/Source/SupernoteReview"
+    }
+  }
+}
